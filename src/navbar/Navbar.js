@@ -62,7 +62,7 @@ function Navigation({ logout }) {
       <Link className="logo-link" to="/">
         <h2>Two Lanes</h2>
       </Link>
-      {!currUser ? loggedInNav() : loggedOutNav()}
+      {currUser ? loggedInNav() : loggedOutNav()}
     </nav>
   );
 }
