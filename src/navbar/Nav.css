@@ -1,0 +1,37 @@
+.logo-link {
+  display: inline-flex;
+  color: yellow;
+  padding: 2px;
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 0.5em;
+  background-color: rgb(24, 24, 24);
+}
+.logo-link:hover {
+  background-color: grey;
+}
+
+li {
+  list-style: none;
+  margin: 0.5em;
+  display:inline-flex;
+}
+
+.navlink {
+  border: 1px solid white;
+  border-radius: 0.5em;
+  background-color: rgb(24, 24, 24);
+  color: yellow;
+  text-decoration: none;
+  padding: 2px;
+}
+
+.navlink:hover {
+  background-color: grey;
+}
+
+.navbar-list {
+  border-top: 2px solid white;
+  border-bottom: 2px dashed yellow;
+  background-color: black;
+}

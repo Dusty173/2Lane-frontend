@@ -1,0 +1,34 @@
+form {
+  position: relative;
+  align-self: center;
+  margin-top: auto;
+  border-top: 2px solid white;
+  width: auto;
+  background-image: linear-gradient(to bottom right, rgb(54, 54, 54), black);
+}
+form label {
+  display: block;
+  color: white;
+}
+
+form input {
+  display: block;
+  align-self: center;
+}
+
+form input:focus {
+  background-color: lightblue;
+}
+
+form button {
+  background-color: yellow;
+  border: none;
+  border-radius: 0.5em;
+}
+
+form button:hover {
+    background-color:green;
+    border: none;
+    border-radius: 0.5em;
+  }
+  

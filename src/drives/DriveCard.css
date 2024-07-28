@@ -1,0 +1,6 @@
+.card-body {
+  border: 2px solid white;
+  border-radius: 0.5em;
+  color: white;
+  background-image: linear-gradient(to bottom right, rgb(63, 63, 63), black);
+}
