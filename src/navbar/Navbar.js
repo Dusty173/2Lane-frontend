@@ -59,8 +59,10 @@ function Navigation({ logout }) {
 
   return (
     <nav className="Navbar">
-      <Link className="logo-link" to="/"><h2>Two Lanes</h2></Link>
-      {currUser ? loggedInNav() : loggedOutNav()}
+      <Link className="logo-link" to="/">
+        <h2>Two Lanes</h2>
+      </Link>
+      {!currUser ? loggedInNav() : loggedOutNav()}
     </nav>
   );
 }
