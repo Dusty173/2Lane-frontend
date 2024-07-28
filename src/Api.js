@@ -49,7 +49,7 @@ class TwolaneApi {
   }
 
   static async removeUser(username) {
-    let res = await this.request(`/users/${username}`, data, "delete");
+    let res = await this.request(`/users/${username}`, "", "delete");
     return res.deleted;
   }
 
@@ -108,7 +108,7 @@ class TwolaneApi {
   }
 
   static async editPost(id) {
-    let res = await this.request(`/posts/${id}`, data, "patch");
+    let res = await this.request(`/posts/${id}`, "", "patch");
     return res.post;
   }
 
@@ -130,12 +130,12 @@ class TwolaneApi {
   }
 
   static async updateDrive(title) {
-    let res = await this.request(`/drives/${title}`, data, "patch");
+    let res = await this.request(`/drives/${title}`, "", "patch");
     return res.drive;
   }
 
   static async deleteDrive(title) {
-    let res = await this.request(`/drives/${title}`, data, "delete");
+    let res = await this.request(`/drives/${title}`, "", "delete");
     return res.deleted;
   }
 }
