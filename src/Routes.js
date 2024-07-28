@@ -11,13 +11,13 @@ import DriveForm from "./drives/AddDriveForm";
 import UserProfile from "./Profile";
 import MyGarage from "./cars/mygarage";
 import CarForm from "./forms/newCar";
-import { useAuth } from "./hooks/useAuth";
+import UserContext from "./Usercontext";
 
 function Routing({ login, signup }) {
   const Navigate = useNavigate();
 
   const PrivateRoute = ({ children, ...rest }) => {
-    const auth = useAuth();
+    const auth = useContext(UserContext);
     return auth ? children : <Navigate to="/login" />;
   };
 

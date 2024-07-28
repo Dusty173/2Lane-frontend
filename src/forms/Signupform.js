@@ -53,6 +53,7 @@ function SignupForm({ signup }) {
               value={formData.password}
               onChange={handleChange}
             />
+
             <button onClick={handleSubmit}>Submit</button>
           </form>
         </div>

@@ -12,7 +12,7 @@ export const TOKEN_STORAGE_ID = "twolane-token";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
-  const [currUser, setCurrUser] = useState(UserContext);
+  const [currUser, setCurrUser] = useState(null);
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
 
   console.debug("App:", "loaded:", loaded, "User:", currUser, "token:", token);

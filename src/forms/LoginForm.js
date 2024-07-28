@@ -47,7 +47,7 @@ function LoginForm({ login }) {
             required
           />
         </div>
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleSubmit}>Log in</button>
       </form>
     </>
   );
