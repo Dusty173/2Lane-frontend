@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import React from "react";
+import { Routes, Route, useNavigate, Outlet } from "react-router-dom";
 import Homepage from "./hompage/Home";
 import PostsPage from "./posts/PostsPage";
 import LoginForm from "./forms/LoginForm";
@@ -11,14 +11,13 @@ import DriveForm from "./drives/AddDriveForm";
 import UserProfile from "./Profile";
 import MyGarage from "./cars/mygarage";
 import CarForm from "./forms/newCar";
-import UserContext from "./Usercontext";
 
 function Routing({ login, signup }) {
   const Navigate = useNavigate();
 
-  const PrivateRoute = ({ children, ...rest }) => {
-    const auth = useContext(UserContext);
-    return auth ? children : <Navigate to="/login" />;
+  const PrivateRoutes = () => {
+    let auth = { token: true };
+    return auth.token ? <Outlet /> : <Navigate to="/login" />;
   };
 
   console.debug(
@@ -36,11 +35,11 @@ function Routing({ login, signup }) {
 
         <Route path="/signup" element={<SignupForm signup={signup} />}></Route>
 
-        <Route element={<PrivateRoute />}>
+        <Route element={<PrivateRoutes />}>
           <Route path="/posts" element={<PostsPage />} />
           <Route path="/posts/new" element={<PostForm />} />
-          <Route path="/profile" element={<UserProfile />} />
-          <Route path="/profile/edit" element={<ProfileForm />} />
+          <Route path="/users" element={<UserProfile />} />
+          <Route path="/users/edit" element={<ProfileForm />} />
           <Route path="/drives" element={<DrivesList />} />
           <Route path="/drives/new" element={<DriveForm />} />
           <Route path="/cars" element={<MyGarage />} />

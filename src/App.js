@@ -16,7 +16,7 @@ function App() {
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
 
   console.debug("App:", "loaded:", loaded, "User:", currUser, "token:", token);
-  
+
   useEffect(
     function loadUser() {
       console.debug("App useEffect loadUser", "token=", token);
@@ -25,10 +25,14 @@ function App() {
         if (token) {
           try {
             let { username } = jwt.decode(token);
+            console.log("Decoded uname:", username);
 
             TwolaneApi.token = token;
 
+            console.log("APi token:", TwolaneApi.token);
+
             let currentUser = await TwolaneApi.getCurrentUser(username);
+            console.log("CURRENT USER:", currentUser);
             setCurrUser(currentUser);
           } catch (err) {
             console.error("App: loadUser: Problem loading", err);

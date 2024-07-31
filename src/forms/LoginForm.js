@@ -21,6 +21,8 @@ function LoginForm({ login }) {
     setFormData((f) => ({ ...f, [name]: value }));
   }
 
+  console.debug("LoginForm", "login=", typeof login, "formData=", formData);
+
   return (
     <>
       <form onSubmit={handleSubmit}>

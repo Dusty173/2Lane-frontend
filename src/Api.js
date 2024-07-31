@@ -44,12 +44,12 @@ class TwolaneApi {
   }
 
   static async getUser(username) {
-    let res = await this.request(`/users/${username}`);
+    let res = await this.request(`users/${username}`);
     return res.user;
   }
 
   static async removeUser(username) {
-    let res = await this.request(`/users/${username}`, "", "delete");
+    let res = await this.request(`users/${username}`, "", "delete");
     return res.deleted;
   }
 
@@ -60,8 +60,8 @@ class TwolaneApi {
 
   // User-Cars Requests
 
-  static async getCars(username) {
-    let res = await this.request(`/${username}/mygarage`);
+  static async getCars() {
+    let res = await this.request(`cars`);
     return res.cars;
   }
 
@@ -71,7 +71,7 @@ class TwolaneApi {
   }
 
   static async addCar(username, data) {
-    let res = await this.request(`/${username}/new`, data, "post");
+    let res = await this.request(`${username}/new`, data, "post");
     return res.car;
   }
 
@@ -88,54 +88,54 @@ class TwolaneApi {
   // User-Posts requests
 
   static async getAllPosts() {
-    let res = await this.request(`/posts`);
+    let res = await this.request(`posts`);
     return res.posts;
   }
 
   static async getPost(id) {
-    let res = await this.request(`/posts/${id}`);
+    let res = await this.request(`posts/${id}`);
     return res.post;
   }
 
   static async createPost(data) {
-    let res = await this.request(`/posts/add`, data, "post");
+    let res = await this.request(`posts/add`, data, "post");
     return res.post;
   }
 
   static async removePost(id) {
-    let res = await this.request(`/posts/${id}`, id, "delete");
+    let res = await this.request(`posts/${id}`, id, "delete");
     return res.deleted;
   }
 
   static async editPost(id) {
-    let res = await this.request(`/posts/${id}`, "", "patch");
+    let res = await this.request(`posts/${id}`, "", "patch");
     return res.post;
   }
 
   // Drive requests
 
   static async getDrives(data) {
-    let res = await this.request(`/drives`);
+    let res = await this.request(`drives`);
     return res.drives;
   }
 
   static async getDrive(title) {
-    let res = await this.request(`/drives/${title}`);
+    let res = await this.request(`drives/${title}`);
     return res.drive;
   }
 
   static async createDrive(data) {
-    let res = await this.request("/drives", data, "post");
+    let res = await this.request("drives", data, "post");
     return res.drive;
   }
 
   static async updateDrive(title) {
-    let res = await this.request(`/drives/${title}`, "", "patch");
+    let res = await this.request(`drives/${title}`, "", "patch");
     return res.drive;
   }
 
   static async deleteDrive(title) {
-    let res = await this.request(`/drives/${title}`, "", "delete");
+    let res = await this.request(`drives/${title}`, "", "delete");
     return res.deleted;
   }
 }
