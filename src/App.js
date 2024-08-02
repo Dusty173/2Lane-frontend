@@ -32,8 +32,8 @@ function App() {
             console.log("APi token:", TwolaneApi.token);
 
             let currentUser = await TwolaneApi.getCurrentUser(username);
-            console.log("CURRENT USER:", currentUser);
             setCurrUser(currentUser);
+            console.log("CURRENT USER:", currentUser);
           } catch (err) {
             console.error("App: loadUser: Problem loading", err);
             setCurrUser(null);
