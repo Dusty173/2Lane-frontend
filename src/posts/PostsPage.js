@@ -3,6 +3,7 @@ import TwolaneApi from "../Api";
 import LoadIcon from "../common/LoadIcon";
 import PostCard from "./PostCard";
 import { Link } from "react-router-dom";
+import "./Posts.css";
 
 function PostsPage() {
   console.debug("Posts Page");
@@ -40,7 +41,7 @@ function PostsPage() {
             ))}
           </div>
         ) : (
-          <p>No results found!</p>
+          <h2 className="no-res">No results found!</h2>
         )}
       </div>
     </>

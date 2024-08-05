@@ -61,18 +61,18 @@ class TwolaneApi {
   }
 
   static async getSingleCar(username, carId) {
-    let res = await this.request(`${username}/${carId}`);
+    let res = await this.request(`cars/${username}/${carId}`);
     return res.car;
   }
 
   static async addCar(username, data) {
-    let res = await this.request(`${username}/new`, data, "post");
+    let res = await this.request(`cars/${username}/new`, data, "post");
     return res.car;
   }
 
   static async removeCar(username, carId) {
     let res = await this.request(
-      `/${username}/${carId}`,
+      `cars/${username}/${carId}`,
       { username, carId },
       "delete"
     );

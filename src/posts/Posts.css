@@ -11,3 +11,9 @@
 .btn:hover {
   background-color: grey;
 }
+
+.no-res {
+  display: flex;
+  justify-content: center;
+  color: red;
+}

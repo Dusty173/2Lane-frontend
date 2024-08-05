@@ -16,7 +16,9 @@ function DriveCard({ title, description, created_at, route_link }) {
       <div className="card-body">
         <h4 className="card-title">{title}</h4>
         <small>Posted: {created_at}</small>
-        <p>Route Link for Google Maps: {route_link}</p>
+        <p className="route-link">
+          Route Link for Google Maps: <br/> <a>{route_link}</a>
+        </p>
         <p>{description}</p>
       </div>
     </div>

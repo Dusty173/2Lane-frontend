@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../Usercontext";
 
 import TwolaneApi from "../Api";
 
 function CarForm() {
+  const { currUser } = useContext(UserContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     make: "",
@@ -13,8 +15,8 @@ function CarForm() {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let result = await TwolaneApi.addCar(formData);
-    if (result.success) {
+    let result = await TwolaneApi.addCar(currUser.username, formData);
+    if (result) {
       navigate("/cars");
     } else {
       console.log("unable to submit");
@@ -29,7 +31,7 @@ function CarForm() {
   return (
     <>
       <div className="add-car-page">
-        <h2>Add a car</h2>
+        <h2 className="carform-title">Add a car</h2>
         <div className="carform">
           <form onSubmit={handleSubmit}>
             <label htmlFor="make">Make</label>
@@ -54,8 +56,8 @@ function CarForm() {
               name="model_year"
               value={formData.model_year}
               onChange={handleChange}
+              maxLength={4}
               required
-              limit={4}
               placeholder="YYYY"
             />
             <button onClick={handleSubmit}>Submit</button>
