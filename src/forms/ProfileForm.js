@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import UserContext from "../Usercontext";
 import TwolaneApi from "../Api";
-import "./form.css";
+import "./profileform.css";
 
 function ProfileForm() {
   const { currentUser, setCurrentUser } = useContext(UserContext);

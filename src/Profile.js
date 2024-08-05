@@ -13,10 +13,10 @@ function UserProfile() {
       <div>
         <ul className="userdata">
           <li>{currUser.email}</li>
-          <li>{currUser.created_at}</li>
-          <li>
+          <li className="created-at">{currUser.created_at}</li>
+          <li className="admin-status">
             Administrator status:
-            {currUser.is_admin ? "You are an admin" : "Not an admin."}
+            {currUser.is_admin ? " You are an admin" : " Not an admin."}
           </li>
         </ul>
       </div>

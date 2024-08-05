@@ -25,7 +25,6 @@ function App() {
         if (token) {
           try {
             let { username } = jwt.decode(token);
-            console.log("Decoded uname:", username);
 
             TwolaneApi.token = token;
 

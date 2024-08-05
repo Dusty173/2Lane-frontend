@@ -14,7 +14,7 @@ class TwolaneApi {
     console.debug("API call:", endpoint, data, method);
 
     const url = `${BASE_URL}/${endpoint}`;
-    const headers = { Autorization: `Bearer ${TwolaneApi.token}` };
+    const headers = { Authorization: `Bearer ${TwolaneApi.token}` };
     const params = method === "get" ? data : {};
 
     try {
@@ -41,11 +41,6 @@ class TwolaneApi {
   static async signup(data) {
     let res = await this.request(`auth/register`, data, "post");
     return res.token;
-  }
-
-  static async getUser(username) {
-    let res = await this.request(`users/${username}`);
-    return res.user;
   }
 
   static async removeUser(username) {

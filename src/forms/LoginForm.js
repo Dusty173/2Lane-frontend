@@ -10,7 +10,7 @@ function LoginForm({ login }) {
     e.preventDefault();
     let result = await login(formData);
     if (result.success) {
-      navigate("/drives");
+      navigate("/");
     } else {
       navigate("/");
       console.error("Error while logging in, Login aborted.");
