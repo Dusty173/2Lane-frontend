@@ -1,22 +1,25 @@
 import React, { useContext } from "react";
 import UserContext from "./Usercontext";
 import { Link } from "react-router-dom";
+import "./profile.css";
 
 function UserProfile() {
   const { currUser, setCurrUser } = useContext(UserContext);
 
   return (
     <>
-      <div>
+      <div className="Profile">
         <h2 className="username">{currUser.username}</h2>
       </div>
       <div>
         <ul className="userdata">
           <li>{currUser.email}</li>
           <li className="created-at">{currUser.created_at}</li>
-          <li className="admin-status">
+          <li>
             Administrator status:
-            {currUser.is_admin ? " You are an admin" : " Not an admin."}
+            <div className="admin-status">
+              {currUser.is_admin ? " You are an admin" : " Not an admin."}
+            </div>
           </li>
         </ul>
       </div>
