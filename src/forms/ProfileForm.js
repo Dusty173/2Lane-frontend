@@ -5,7 +5,7 @@ import "./profileform.css";
 
 function ProfileForm() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
-
+  console.log("ProfileForm USER:", currentUser);
   const [formData, setFormData] = useState({
     email: currentUser.email,
     username: currentUser.username,

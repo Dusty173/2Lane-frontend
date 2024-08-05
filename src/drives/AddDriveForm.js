@@ -2,13 +2,11 @@ import React, { useContext, useState } from "react";
 import UserContext from "../Usercontext";
 import TwolaneApi from "../Api";
 import "../forms/form.css";
+import { useNavigate } from "react-router-dom";
+
 function DriveForm() {
   const { currUser, setCurrUser } = useContext(UserContext);
-  const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-    route_link: "",
-  });
+  const [formData, setFormData] = useState({});
 
   const [formErr, setFormErr] = useState([]);
 
@@ -22,6 +20,8 @@ function DriveForm() {
     formErr
   );
 
+  const navigate = useNavigate();
+
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -33,6 +33,8 @@ function DriveForm() {
 
     try {
       await TwolaneApi.createDrive(driveData);
+      setFormData({ title: "", description: "", route_link: "" });
+      navigate("/drives");
     } catch (err) {
       setFormErr(err);
       return;
@@ -64,8 +66,9 @@ function DriveForm() {
         <div>
           <label htmlFor="routelink">Route Link:</label>
           <input
-            name="routelink"
+            name="route_link"
             value={formData.route_link}
+            placeholder="link"
             required
             onChange={handleChange}
           />
@@ -80,7 +83,9 @@ function DriveForm() {
             onChange={handleChange}
           />
         </div>
-        <button className="submit-btn" onClick={handleSubmit}></button>
+        <button className="submit-btn" onClick={handleSubmit}>
+          Submit
+        </button>
       </form>
     </div>
   );

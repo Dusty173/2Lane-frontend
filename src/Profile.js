@@ -20,7 +20,7 @@ function UserProfile() {
           </li>
         </ul>
       </div>
-      <Link to="/profile/edit">Edit profile</Link>
+      <Link to="/users/edit">Edit profile</Link>
     </>
   );
 }

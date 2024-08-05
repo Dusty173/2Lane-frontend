@@ -3,10 +3,12 @@ import TwolaneApi from "../Api";
 import UserContext from "../Usercontext";
 import LoadIcon from "../common/LoadIcon";
 import Car from "./car";
+import { useNavigate } from "react-router-dom";
 
 function MyGarage() {
-  const { cars, setCars } = useState(null);
+  const [cars, setCars] = useState(null);
   const { currUser, setCurrUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   useEffect(function getAllCarsOnLoad() {
     console.debug("Get cars on mount");
@@ -20,8 +22,14 @@ function MyGarage() {
 
   if (!cars) return <LoadIcon />;
 
+  function handleClick(e) {
+    e.preventDefault();
+    navigate("/cars/new");
+  }
+
   return (
     <>
+      <button onClick={handleClick}>Add Car</button>
       {cars.length ? (
         <div className="cars-list">
           {cars.map((c) => (

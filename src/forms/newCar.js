@@ -55,6 +55,7 @@ function CarForm() {
               value={formData.model_year}
               onChange={handleChange}
               required
+              limit={4}
               placeholder="YYYY"
             />
             <button onClick={handleSubmit}>Submit</button>

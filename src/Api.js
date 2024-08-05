@@ -55,8 +55,8 @@ class TwolaneApi {
 
   // User-Cars Requests
 
-  static async getCars() {
-    let res = await this.request(`cars`);
+  static async getCars(username) {
+    let res = await this.request(`cars/${username}`);
     return res.cars;
   }
 

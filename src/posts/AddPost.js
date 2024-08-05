@@ -71,7 +71,7 @@ function PostForm() {
             onChange={handleChange}
           />
         </div>
-        <button className="submit-btn" onClick={handleSubmit}></button>
+        <button className="submit-btn" onClick={handleSubmit}>Post!</button>
       </form>
     </div>
   );
