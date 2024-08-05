@@ -3,6 +3,7 @@ import TwolaneApi from "../Api";
 import LoadIcon from "../common/LoadIcon";
 import { Link } from "react-router-dom";
 import DriveCard from "./DriveCard";
+import "./drives.css";
 
 function DrivesList() {
   console.debug("Drive Page");
@@ -23,7 +24,9 @@ function DrivesList() {
 
   return (
     <>
-      <Link to="/drives/new">Add Drive</Link>
+      <Link className="btn" to="/drives/new">
+        Add Drive
+      </Link>
       <div className="drive-list">
         {drives.length ? (
           <div>

@@ -29,7 +29,7 @@ function MyGarage() {
 
   return (
     <>
-      <button onClick={handleClick}>Add Car</button>
+      <button className="btn" onClick={handleClick}>Add Car</button>
       {cars.length ? (
         <div className="cars-list">
           {cars.map((c) => (

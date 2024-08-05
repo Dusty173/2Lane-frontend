@@ -23,7 +23,9 @@ function PostsPage() {
 
   return (
     <>
-      <Link to="/posts/new">Add Post</Link>
+      <Link className="btn" to="/posts/new">
+        Add Post
+      </Link>
       <div className="post-list">
         {posts.length ? (
           <div>
