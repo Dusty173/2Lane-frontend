@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import TwolaneApi from "../Api";
 import LoadIcon from "../common/LoadIcon";
 
-function PostDetail() {
+function PostDetail({title, body, created_at, username }) {
   const { id } = useParams();
-  console.debug("PostDetail", "id:", id);
+  console.debug("PostDetail", "id:", id, title);
 
   const [post, setPost] = useState(null);
 
@@ -24,11 +24,11 @@ function PostDetail() {
 
   return (
     <div className="PostDetails">
-      <h4>{post.title}</h4>
+      <h4>{title}</h4>
       <small>
-        Posted at: {post.created_at}, by: {post.user_id.username}
+        Posted at: {created_at}, by: {username}
       </small>
-      <p>{post.body}</p>
+      <p>{body}</p>
       <br />
       <small>Cannot comment on posts yet.</small>
     </div>

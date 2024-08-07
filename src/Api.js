@@ -93,7 +93,7 @@ class TwolaneApi {
   }
 
   static async createPost(data) {
-    let res = await this.request(`posts/add`, data, "post");
+    let res = await this.request(`posts/new`, data, "post");
     return res.post;
   }
 

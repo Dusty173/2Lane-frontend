@@ -33,7 +33,7 @@ function DrivesList() {
             {drives.map((d) => (
               <DriveCard
                 title={d.title}
-                body={d.description}
+                description={d.description}
                 created_at={d.created_at}
                 route_link={d.route_link}
               />

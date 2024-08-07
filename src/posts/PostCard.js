@@ -10,15 +10,20 @@ import "./PostCard.css";
  * CompanyList -> CompanyCard
  */
 
-function PostCard({ id, title, body, created_at, user_id }) {
-  console.debug("PostCard", title, created_at);
+function PostCard({ id, title, body, created_at, username }) {
+  console.debug("PostCard", username, id, title, created_at);
+
+  let time = created_at;
+  let newTime = new Date(time);
+  let formattedTime = newTime.toLocaleString();
 
   return (
-    <Link className="PostCard" to={`/posts/${id}`}>
+    <Link className="PostDetail" to={`/posts/${id}`}>
       <div className="card-body">
         <h4 className="card-title">{title}</h4>
         <small>
-          Posted: {created_at} By:{user_id.username}
+          Posted: <i>{formattedTime}</i> <br />
+          By:{username}
         </small>
         <p>{body}</p>
       </div>

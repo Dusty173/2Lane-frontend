@@ -11,6 +11,7 @@ import DriveForm from "./drives/AddDriveForm";
 import UserProfile from "./Profile";
 import MyGarage from "./cars/mygarage";
 import CarForm from "./forms/newCar";
+import PostDetail from "./posts/PostDetail"
 
 function Routing({ login, signup }) {
   const Navigate = useNavigate();
@@ -37,6 +38,7 @@ function Routing({ login, signup }) {
 
         <Route element={<PrivateRoutes />}>
           <Route path="/posts" element={<PostsPage />} />
+          <Route path="/posts/:id" element={<PostDetail />} />
           <Route path="/posts/new" element={<PostForm />} />
           <Route path="/users" element={<UserProfile />} />
           <Route path="/users/edit" element={<ProfileForm />} />

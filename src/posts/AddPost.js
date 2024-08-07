@@ -7,7 +7,7 @@ function PostForm() {
   const [formData, setFormData] = useState({
     title: "",
     body: "",
-    user_id: currUser.user_id,
+    username: currUser.username,
   });
 
   const [formErr, setFormErr] = useState([]);
@@ -28,7 +28,7 @@ function PostForm() {
     let postData = {
       title: formData.title,
       body: formData.body,
-      user_id: currUser.user_id,
+      username: currUser.username,
     };
 
     try {
@@ -71,7 +71,9 @@ function PostForm() {
             onChange={handleChange}
           />
         </div>
-        <button className="submit-btn" onClick={handleSubmit}>Post!</button>
+        <button className="submit-btn" onClick={handleSubmit}>
+          Post!
+        </button>
       </form>
     </div>
   );

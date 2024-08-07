@@ -36,7 +36,7 @@ function PostsPage() {
                 title={p.title}
                 body={p.body}
                 created_at={p.created_at}
-                user_id={p.user_id}
+                username={p.user_id}
               />
             ))}
           </div>
