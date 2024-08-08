@@ -9,7 +9,7 @@ body {
 }
 
 .car-card {
-    background-color: black;
+  background-color: black;
   display: flex;
   justify-content: center;
   border: 1px solid white;
@@ -33,4 +33,8 @@ body {
 
 .remove-btn:hover {
   background-color: red;
+}
+
+.not-found {
+  color: red;
 }

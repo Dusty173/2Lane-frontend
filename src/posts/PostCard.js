@@ -3,13 +3,6 @@ import { Link } from "react-router-dom";
 
 import "./PostCard.css";
 
-/** Show limited information about a company
- *
- * Is rendered by CompanyList to show a "card" for each company.
- *
- * CompanyList -> CompanyCard
- */
-
 function PostCard({ id, title, body, created_at, username }) {
   console.debug("PostCard", username, id, title, created_at);
 
@@ -23,7 +16,7 @@ function PostCard({ id, title, body, created_at, username }) {
         <h4 className="card-title">{title}</h4>
         <small>
           Posted: <i>{formattedTime}</i> <br />
-          By:{username}
+          Author: {username}
         </small>
         <p>{body}</p>
       </div>

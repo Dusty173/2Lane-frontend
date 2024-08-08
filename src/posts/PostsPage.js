@@ -20,6 +20,7 @@ function PostsPage() {
     setPosts(posts);
   }
 
+  console.log("POST RES", posts);
   if (!posts) return <LoadIcon />;
 
   return (
@@ -36,7 +37,7 @@ function PostsPage() {
                 title={p.title}
                 body={p.body}
                 created_at={p.created_at}
-                username={p.user_id}
+                username={p.username}
               />
             ))}
           </div>

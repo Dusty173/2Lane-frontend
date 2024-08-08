@@ -98,7 +98,7 @@ class TwolaneApi {
   }
 
   static async removePost(id) {
-    let res = await this.request(`posts/${id}`, id, "delete");
+    let res = await this.request(`posts/${id}`, "","delete");
     return res.deleted;
   }
 

@@ -1,18 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import TwolaneApi from "../Api";
 import LoadIcon from "../common/LoadIcon";
+import UserContext from "../Usercontext";
+import "./Postdetail.css";
 
-function PostDetail({title, body, created_at, username }) {
+function PostDetail() {
+  const navigate = useNavigate();
   const { id } = useParams();
-  console.debug("PostDetail", "id:", id, title);
+  const { currUser, setCurrUser } = useContext(UserContext);
+  console.debug("PostDetail", "id:", id);
 
   const [post, setPost] = useState(null);
+
+  async function handleDelete() {
+    await TwolaneApi.removePost(post.id);
+    navigate("/posts");
+  }
 
   useEffect(
     function getPostById() {
       async function getPost() {
-        setPost(await TwolaneApi.getPost(id));
+        let res = await TwolaneApi.getPost(id);
+        console.log("RES", res);
+        setPost(res[0]);
       }
 
       getPost();
@@ -21,16 +32,24 @@ function PostDetail({title, body, created_at, username }) {
   );
 
   if (!post) return <LoadIcon />;
+  console.log("CurrUser", currUser);
+  console.log("PostState", post);
 
   return (
     <div className="PostDetails">
-      <h4>{title}</h4>
-      <small>
-        Posted at: {created_at}, by: {username}
-      </small>
-      <p>{body}</p>
+      <h2 className="post-title">{post.title} </h2>
+      <small className="post-by">By: {post.username}</small>
+      <p className="post-body">{post.body}</p>
       <br />
-      <small>Cannot comment on posts yet.</small>
+      <small className="comment">Cannot comment on posts yet.</small>
+      <br />
+      {currUser.username === post.username || currUser.is_admin ? (
+        <button className="delete-btn" onClick={handleDelete}>
+          Delete This Post
+        </button>
+      ) : (
+        <span></span>
+      )}
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import UserContext from "../Usercontext";
 import TwolaneApi from "../Api";
+import "../forms/form.css";
 
 function PostForm() {
   const { currUser, setCurrUser } = useContext(UserContext);
@@ -9,7 +11,7 @@ function PostForm() {
     body: "",
     username: currUser.username,
   });
-
+  const navigate = useNavigate();
   const [formErr, setFormErr] = useState([]);
 
   console.debug(
@@ -33,6 +35,7 @@ function PostForm() {
 
     try {
       await TwolaneApi.createPost(postData);
+      navigate("/posts");
     } catch (err) {
       setFormErr(err);
       return;
@@ -46,6 +49,12 @@ function PostForm() {
       [name]: value,
     }));
     setFormErr([]);
+  }
+
+  function handleSize(e) {
+    const target = e.target;
+    target.style.width = "60px";
+    target.style.width = `${target.scrollWidth}px`;
   }
 
   return (
@@ -64,7 +73,7 @@ function PostForm() {
         <div>
           <label htmlFor="body">Body</label>
           <input
-            type="textarea"
+            type="text"
             name="body"
             value={formData.body}
             required
