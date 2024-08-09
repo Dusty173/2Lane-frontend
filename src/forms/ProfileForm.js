@@ -4,12 +4,11 @@ import TwolaneApi from "../Api";
 import "./profileform.css";
 
 function ProfileForm() {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-  console.log("ProfileForm USER:", currentUser);
+  const { currUser, setCurrUser } = useContext(UserContext);
+  console.log("ProfileForm USER:", currUser);
   const [formData, setFormData] = useState({
-    email: currentUser.email,
-    username: currentUser.username,
-    password: "",
+    email: currUser.email,
+    username: currUser.username,
   });
 
   async function handleSubmit(e) {
@@ -18,7 +17,6 @@ function ProfileForm() {
     let profileData = {
       username: formData.username,
       email: formData.email,
-      password: formData.password,
     };
 
     let username = formData.username;
@@ -27,13 +25,12 @@ function ProfileForm() {
     try {
       updatedUser = await TwolaneApi.saveProfile(username, profileData);
     } catch (err) {
-      debugger;
       return;
     }
 
     setFormData((f) => ({ ...f, password: "" }));
 
-    setCurrentUser(updatedUser);
+    setCurrUser(updatedUser);
   }
 
   function handleChange(e) {
@@ -62,15 +59,6 @@ function ProfileForm() {
             id="email"
             name="email"
             value={formData.email}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Confirm password to make changes</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
             onChange={handleChange}
           />
         </div>
